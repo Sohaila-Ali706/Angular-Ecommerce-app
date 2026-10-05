@@ -8,7 +8,7 @@
 <app-loading *ngIf="isLoading"></app-loading>
 
 <div class="row" *ngIf="!isLoading">
-  <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let product of filteredProducts">
+  <div class="col-6 col-md-6 col-lg-4 col-xl-3" *ngFor="let product of filteredProducts">
     <app-card-one [product]="product"></app-card-one>
   </div>
 </div>

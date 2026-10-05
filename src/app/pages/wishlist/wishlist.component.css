@@ -42,10 +42,14 @@ button {
   }
 }
 .wish {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.product-item {
+  min-width: 0;
 }
 
 .spicialhesd {
@@ -66,4 +70,11 @@ button {
   top: -25%;
   content: "";
   border-radius: 4px;
+}
+
+@media (max-width: 767px) {
+  .wish {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
 }

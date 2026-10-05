@@ -37,8 +37,6 @@ export class CardOneComponent {
     } else {
       this.wishlistService.addToWishlist(this.product);
     }
-
-    this.isInWishlist = !this.isInWishlist;
   }
 
 

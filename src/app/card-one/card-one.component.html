@@ -1,14 +1,10 @@
-<div class="row">
-  <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-    <div class="card mt-5 border-0" style="width: 270px">
-      <div class="parent">
+<div class="card border-0">
+  <div class="parent">
         <div class="image">
           <img
             [src]="product?.thumbnail || product?.images[0]"
             class="card-img-top p-5"
             alt="image"
-            width="100%"
-            height="270px"
           />
         </div>
         <div>
@@ -17,8 +13,8 @@
           </button>
 
         </div>
-      </div>
-      <div class="card-body">
+  </div>
+  <div class="card-body">
         <h5 class="card-title">{{ product?.title }}</h5>
         <p class="card-text">
           <span class="text-danger pe-3"> {{ product?.price }} $</span>
@@ -43,22 +39,35 @@
             <p class="text-secondary number">{{ product?.rating }}</p>
           </div>
         </div>
-      </div>
+  </div>
 
-      <div class="icons">
-        <div class="iconone mb-1 rounded-circle" (click)="toggleWishlist()" *ngIf="iconone">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            [attr.fill]="isInWishlist ? 'red' : 'currentColor'"
-            class="bi bi-heart"
-            viewBox="0 0 16 16">
-            <path
-              d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"
-            />
-          </svg>
-        </div>
+  <div class="icons">
+    <button
+      type="button"
+      class="iconone mb-1 rounded-circle"
+      (click)="toggleWishlist()"
+      *ngIf="iconone"
+      [attr.aria-label]="isInWishlist ? 'Remove from wishlist' : 'Add to wishlist'"
+      [attr.aria-pressed]="isInWishlist"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        [attr.fill]="isInWishlist ? '#db4444' : 'currentColor'"
+        [attr.class]="isInWishlist ? 'bi bi-heart-fill' : 'bi bi-heart'"
+        viewBox="0 0 16 16"
+      >
+        <path
+          *ngIf="isInWishlist"
+          d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.735 3.562-3.248 8 1.314z"
+        />
+        <path
+          *ngIf="!isInWishlist"
+          d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"
+        />
+      </svg>
+    </button>
         <div class="icontwo mb-1 rounded-circle" *ngIf="icontwo">
           <svg
           [routerLink]="['/all-products', product.id]"
@@ -91,13 +100,11 @@
             />
           </svg>
         </div>
-      </div>
-      <div class="sale text-white" *ngIf="discountFlag">
+  </div>
+  <div class="sale text-white" *ngIf="discountFlag">
         <p>-{{product.discountPercentage}}%</p>
-      </div>
-      <div class="salenew text-white" *ngIf="new">
+  </div>
+  <div class="salenew text-white" *ngIf="new">
         <p>NEW</p>
-      </div>
-    </div>
   </div>
 </div>

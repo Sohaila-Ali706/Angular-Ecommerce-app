@@ -1,10 +1,27 @@
-.number {
-  margin-top: 18px;
+:host {
+  display: block;
+  width: 100%;
+  min-width: 0;
 }
+
+.card {
+  width: 100%;
+  max-width: 270px;
+  margin: 1.5rem auto 0;
+  min-width: 0;
+}
+
 .image {
-  background-color: #f5f5f5;
   height: 250px;
+  background-color: #f5f5f5;
 }
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .parent {
   position: relative;
 }
@@ -14,61 +31,81 @@
   top: 12px;
   right: 12px;
 }
+
 .iconone,
 .icontwo,
 .iconthree {
+  display: block;
   background-color: white;
   cursor: pointer;
-  padding: 3px 6px 5px 6px;
+  padding: 3px 6px 5px;
 }
+
+.iconone {
+  border: 0;
+  color: #000;
+}
+
+.card-title {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  min-height: 2.5em;
+  font-size: clamp(0.85rem, 3.8vw, 1.1rem);
+}
+
 .stars {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-top: -28px;
 }
-button {
+
+.number {
+  margin-top: 18px;
+}
+
+.parent > div > button {
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
   background-color: black;
   position: absolute;
-  bottom: 0%;
+  bottom: 0;
   left: 0;
   width: 100%;
   height: 41px;
 }
-.card:hover button {
+
+.card:hover .parent > div > button {
   opacity: 1;
   visibility: visible;
 }
-.sale {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  border-radius: 4px;
-  padding-left: 8px;
-  width: 70px;
-  height: 26px;
-  background-color: #db4444;
-}
+
+.sale,
 .salenew {
   position: absolute;
   top: 12px;
   left: 12px;
   border-radius: 4px;
   padding-left: 8px;
-  width: 55px;
   height: 26px;
+}
+
+.sale {
+  width: 70px;
+  background-color: #db4444;
+}
+
+.salenew {
+  width: 55px;
   background-color: #00ff66;
 }
-@media (max-width: 750px) {
-  .card {
-    left: 40%;
-  }
-}
-@media (max-width: 500px) {
-  .card {
-    left: 11%;
+
+@media (hover: none) {
+  .parent > div > button {
+    opacity: 1;
+    visibility: visible;
   }
 }

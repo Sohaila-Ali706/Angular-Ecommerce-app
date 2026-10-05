@@ -46,9 +46,7 @@
   </div>
   <div>
     <div class="cards mb-5 ">
-      <div *ngFor="let product of cards |slice:3:7">
-        <app-card-one [product]="product"></app-card-one>
-      </div>
+      <app-card-one *ngFor="let product of cards |slice:3:7" [product]="product"></app-card-one>
     </div>
   </div>
 
@@ -65,18 +63,12 @@
   </div>
 
   <div class="cards ">
-    <div *ngFor="let product of cards |slice:90:92 ">
-      <app-card-one [product]="product"></app-card-one>
-    </div>
-    <div *ngFor="let product of cards |slice:77:79 ">
-      <app-card-one [product]="product"></app-card-one>
-    </div>
+  <app-card-one *ngFor="let product of cards |slice:90:92 " [product]="product"></app-card-one>
+  <app-card-one *ngFor="let product of cards |slice:77:79 " [product]="product"></app-card-one>
   </div>
 
   <div class="cards ">
-    <div *ngFor="let product of cards |slice:26:30 ">
-      <app-card-one [product]="product" [new]="true"></app-card-one>
-    </div>
+  <app-card-one *ngFor="let product of cards |slice:26:30 " [product]="product" [new]="true"></app-card-one>
   </div>
   <div class="bton">
     <button [routerLink]="['/all-products']">View All Products</button>
@@ -97,4 +89,3 @@
 </div>
 
 </div>
-

@@ -1,7 +1,7 @@
 <app-loading *ngIf="isLoading"></app-loading>
 <div class="container" *ngIf="!isLoading">
     <div class="row">
-        <div class="col-3 col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let product of filteredproducts">
+        <div class="col-6 col-md-6 col-lg-4 col-xl-3" *ngFor="let product of filteredproducts">
             <app-card-one [product]="product" [new]="true"></app-card-one>
         </div>
     </div>
