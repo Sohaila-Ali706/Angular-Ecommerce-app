@@ -21,3 +21,30 @@
 .arrival{
     margin-bottom: 100px;
 }
+
+@media (max-width: 767px) {
+    .arrival {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px 10px;
+        padding: 0 8px;
+    }
+
+    .arrival > div:last-child {
+        grid-column: 1 / -1;
+        justify-self: center;
+        max-width: 260px;
+    }
+
+    .arrival h4 {
+        font-size: clamp(0.85rem, 3.5vw, 1.1rem);
+    }
+
+    .arrival p {
+        font-size: 0.8rem;
+    }
+
+    .icon i {
+        margin-top: 0;
+    }
+}

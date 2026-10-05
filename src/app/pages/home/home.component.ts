@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit{
   categories: string[] = [];
   products: any[] = [];
   filteredProducts: any[] = [];
+  isSidebarOpen = false;
  
 slides = [
   {
@@ -57,6 +58,7 @@ filterByCategory(category: string) {
 
 
 navigateToFilteredProducts(category: string) {
+  this.isSidebarOpen = false;
   this.router.navigate(['/all-products'], { queryParams: { category } });
 }
 

@@ -1,517 +1,94 @@
-body {
+.featured-grid {
+  display: grid;
+  grid-template: repeat(2, minmax(220px, 1fr)) / repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  min-height: 500px;
+}
 
-    color: white;
-    
-    }
-    
-    .img-container {
-    
-    position: relative;
-    
-    display: inline-block;
-    
-    }
-    
-    .img-background {
-    
-    position: absolute;
-    
-    top: 50%;
-    
-    left: 50%;
-    
-    transform: translate(-50%, -50%);
-    
-    width: 350px;
-    
-    height: 200px;
-    
-    border-radius: 20px;
-    
-    z-index: -1;
-    
-    }
-    
-    .featured-section {
-    
-    position: relative;
-    
-    background-color: white;
-    
-    color: black;
-    
-    padding: 50px 0;
-    
-    }
-    
-    .featured-card{
-    
-    position: relative;
-    
-    overflow: hidden;
-    
-    background: #0c0b0b ;
-    
-    border-radius: 3px;
-    
-    display: flex;
-    
-    justify-content: center;
-    
-    align-items: center;
-    
-    height: 100%;
-    
-    width: 100%; 
-    
-    display: flex;
-    
-    flex-direction: column;
-    
-    justify-content: flex-end;
-    
-    }
-    
-    .img1 {
-    
-    position: relative;
-    
-    top: 10%;
-    
-    width: 100%;
-    
-    height: 100%;
-    
-    object-fit: cover;
-    
-    transform: scale(0.8); 
-    
-    background: #0c0b0b ;
-    
-    display: block !important; 
-    
-    margin: 0 auto; 
-    
-    max-width: 900px;
-    
-    }
-    
-    .img2 {
-    
-    width: 100%;
-    
-    height: 100%;
-    
-    object-fit: cover;
-    
-    transform: scale(0.8); 
-    
-    max-width: 500px; 
-    
-    display: block;
-    
-    }
-    
-    .img3 {
-    
-    filter: drop-shadow(15px 20px 40px #2d2b2bcb);
-    
-    width: 100%;
-    
-    object-fit: cover;
-    
-    transform: scale(0.8); 
-    
-    max-width: 300px; 
-    
-    height: auto; 
-    
-    display: block; 
-    
-    margin: 0 auto;
-    
-    }
-    
-    .img4 {
-    
-    width: 100%;
-    
-    object-fit: cover;
-    
-    transform: scale(0.8);
-    
-    filter: drop-shadow(15px 20px 40px #2d2b2bcb);
-    
-    max-width: 800px;
-    
-    height: auto;
-    
-    display: block; 
-    
-    margin: 0 auto;
-    
-    }
-    
-    @media (max-width: 768px) {
-    
-    .img1,.img2,.img3,.img4 {
-    
-    width: 90%;
-    
-    }
-    
-    }
-    
-    @media (max-width: 480px) {
-    
-    .img1,.img2,.img3,.img4{
-    
-        width: 80%;
-    
-    }
-    
-    }
-    
-    .featured-card img {
-    
-    transition: transform 0.3s ease-in-out;
-    
-    width: 100%;
-    
-    height: 100%;
-    
-    object-fit: cover;
-    
-    }
-    
-    .featured-overlay1 {
-    
-    position: absolute;
-    
-    bottom: 0;
-    
-    left: 0;
-    
-    right: 0;
-    
-    color: white;
-    
-    padding: 10px;
-    
-    width: 100%;
-    
-    height: 30%;
-    
-    display: flex;
-    
-    align-items: center;
-    
-    justify-content: center;
-    
-    opacity: 0;
-    
-    transition: opacity 0.3s ease-in-out;
-    
-    }
-    
-    .featured-overlay1 h3 {
-    
-    position: absolute;
-    
-    left: 12px;
-    
-    bottom: 77%;
-    
-    font-weight: bold;
-    
-    margin-bottom: 0px;
-    
-    }
-    
-    .featured-overlay1 p {
-    
-    position: absolute;
-    
-    left: 12px;
-    
-    margin-bottom: 23px; 
-    
-    font-size: 16px;
-    
-    }
-    
-    .featured-overlay1 a {
-    
-    position: absolute;
-    
-    left: 15px;
-    
-    color: white;
-    
-    text-decoration: underline;
-    
-    font-size: 14px;
-    
-    font-weight: bold;
-    
-    margin-top: 15%;
-    
-    }
-    
-    .featured-card:hover .featured-overlay1 {
-    
+.featured-card {
+  position: relative;
+  min-height: 220px;
+  overflow: hidden;
+  background: #0c0b0b;
+  color: white;
+}
+
+.large-card {
+  grid-row: span 2;
+}
+
+.featured-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.featured-card:hover img {
+  transform: scale(1.04);
+}
+
+.large-card .img1 {
+  object-fit: contain;
+  transform: scale(0.9);
+}
+
+.featured-card > div {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 48px 14px 14px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.featured-card:hover > div {
+  opacity: 1;
+}
+
+.featured-card h3 {
+  margin: 0 0 6px;
+  font-size: clamp(1rem, 2vw, 1.4rem);
+}
+
+.featured-card p {
+  margin: 0 0 6px;
+  font-size: 0.9rem;
+}
+
+.featured-card a {
+  color: white;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+  .featured-grid {
+    grid-template-rows: repeat(2, 220px);
+    gap: 10px;
+    min-height: 0;
+  }
+
+  .large-card {
+    grid-row: auto;
+  }
+
+  .featured-card > div {
+    padding: 35px 8px 8px;
     opacity: 1;
-    
-    }
-    
-    .featured-overlay2 {
-    
-    position: absolute;
-    
-    bottom: 0;
-    
-    left: 0;
-    
-    right: 0;
-    
-    color: white;
-    
-    padding: 10px;
-    
-    width: 100%;
-    
-    height: 30%;
-    
-    display: flex;
-    
-    align-items: center;
-    
-    justify-content: center;
-    
-    opacity: 0;
-    
-    transition: opacity 0.3s ease-in-out;
-    
-    }
-    
-    .featured-overlay2 h3 {
-    
-    position: absolute;
-    
-    left: 12px;
-    
-    bottom: 100%;
-    
-    font-weight: bold;
-    
-    margin-bottom: 0px;
-    
-    }
-    
-    .featured-overlay2 p {
-    
-    position: absolute;
-    
-    left: 12px;
-    
-    margin-bottom: 23px; 
-    
-    font-size: 16px;
-    
-    }
-    
-    .featured-overlay2 a {
-    
-    position: absolute;
-    
-    left: 15px;
-    
-    color: white;
-    
-    text-decoration: underline;
-    
-    font-size: 14px;
-    
-    font-weight: bold;
-    
-    margin-top: 10%;
-    
-    }
-    
-    .featured-card:hover .featured-overlay2 {
-    
-    opacity: 1;
-    
-    }
-    
-    .featured-overlay3 {
-    
-    position: absolute;
-    
-    bottom: 0;
-    
-    left: 0;
-    
-    right: 0;
-    
-    color: white;
-    
-    padding: 10px;
-    
-    width: 100%;
-    
-    height: 30%;
-    
-    display: flex;
-    
-    align-items: center;
-    
-    justify-content: center;
-    
-    opacity: 0;
-    
-    transition: opacity 0.3s ease-in-out;
-    
-    }
-    
-    .featured-overlay3 h3 {
-    
-    position: absolute;
-    
-    left: 12px;
-    
-    bottom: 95%;
-    
-    font-weight: bold;
-    
-    margin-bottom: 0px;
-    
-    }
-    
-    .featured-overlay3 p {
-    
-    position: absolute;
-    
-    left: 12px;
-    
-    margin-bottom: 20px; 
-    
-    font-size: 16px;
-    
-    }
-    
-    .featured-overlay3 a {
-    
-    position: absolute;
-    
-    left: 15px;
-    
-    color: white;
-    
-    text-decoration: underline;
-    
-    font-size: 14px;
-    
-    font-weight: bold;
-    
-    margin-top: 15%;
-    
-    }
-    
-    .featured-card:hover .featured-overlay3 {
-    
-    opacity: 1;
-    
-    }
-    
-    .featured-overlay4 {
-    
-    position: absolute;
-    
-    bottom: 0;
-    
-    left: 0;
-    
-    right: 0;
-    
-    color: white;
-    
-    padding: 10px;
-    
-    width: 100%;
-    
-    height: 30%;
-    
-    display: flex;
-    
-    align-items: center;
-    
-    justify-content: center;
-    
-    opacity: 0;
-    
-    transition: opacity 0.3s ease-in-out;
-    
-    }
-    
-    .featured-overlay4 h3 {
-    
-    position: absolute;
-    
-    left: 12px;
-    
-    bottom: 90%;
-    
-    font-weight: bold;
-    
-    margin-bottom: 0px;
-    
-    }
-    
-    .featured-overlay4 p {
-    
-    position: absolute;
-    
-    left: 12px;
-    
-    margin-bottom: 20px; 
-    
-    font-size: 16px;
-    
-    }
-    
-    .featured-overlay4 a {
-    
-    position: absolute;
-    
-    left: 15px;
-    
-    color: white;
-    
-    text-decoration: underline;
-    
-    font-size: 14px;
-    
-    font-weight: bold;
-    
-    margin-top: 15%;
-    
-    }
-    
-    .featured-card:hover .featured-overlay4 {
-    
-    opacity: 1;
-    
-    }
-    
-    .large-card, .small-card {
-    
-    height: 100%;
-    
-    }
-    
-    .large-card img, .small-card img {
-    
-    height: 100% ;
-    
-    }
+  }
+
+  .featured-card h3 {
+    font-size: clamp(0.8rem, 3.8vw, 1rem);
+  }
+
+  .featured-card p {
+    font-size: clamp(0.62rem, 2.8vw, 0.78rem);
+  }
+
+  .featured-card a {
+    font-size: 0.75rem;
+  }
+}

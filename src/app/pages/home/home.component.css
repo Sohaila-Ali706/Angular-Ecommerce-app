@@ -15,9 +15,14 @@
 
 .sidebar {
   width: 250px;
+  flex: 0 0 250px;
   background: #fff;
   padding: 10px 0;
   border-right: 1px solid rgb(181, 172, 172);
+}
+
+.sidebar-toggle {
+  display: none;
 }
 
 .sidebar ul {
@@ -146,5 +151,117 @@
 
   .slide-image img {
     max-width: 250px;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 12px 8px;
+    gap: 8px;
+  }
+
+  .sidebar,
+  .sidebar.is-open {
+    flex: 0 0 38px;
+    width: 38px;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    background: transparent;
+    transition: flex-basis 0.2s ease, width 0.2s ease;
+  }
+
+  .sidebar.is-open {
+    position: relative;
+    overflow: visible;
+  }
+
+  .sidebar-toggle {
+    display: flex;
+    width: 38px;
+    min-height: 40px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fff;
+    color: #222;
+    cursor: pointer;
+  }
+
+  .sidebar.is-open .sidebar-toggle {
+    width: 38px;
+    justify-content: center;
+    padding: 8px;
+  }
+
+  .sidebar.is-open .sidebar-toggle span {
+    display: none;
+  }
+
+  .sidebar ul {
+    display: none;
+    max-height: 55vh;
+    overflow-y: auto;
+    margin: 8px 0 0;
+    padding: 0;
+  }
+
+  .sidebar.is-open ul {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 38px;
+    display: block;
+    width: min(180px, calc(100vw - 80px));
+    max-height: 55vh;
+    margin: 0;
+    padding: 8px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 0 4px 14px rgb(0 0 0 / 10%);
+  }
+
+  .sidebar li {
+    padding: 10px 4px;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+
+  .slider {
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+    margin: 0;
+  }
+
+  .slide {
+    min-height: 300px;
+    padding: 14px 8px;
+  }
+
+  .slide-text {
+    min-width: 0;
+    padding: 8px;
+  }
+
+  .slide-text h2 {
+    font-size: clamp(1.35rem, 6vw, 2rem);
+  }
+
+  .slide-image img {
+    width: 100%;
+    max-width: 180px;
+  }
+
+  .slider-dots {
+    bottom: 10px;
   }
 }

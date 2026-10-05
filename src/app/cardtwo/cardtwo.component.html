@@ -1,14 +1,14 @@
-<div class="row mb-5">
-    <div 
-      class="card me-5 col-12 col-sm-6 col-md-3 col-xl-2" 
-      *ngFor="let card of category"
-      [routerLink]="'/category/' + card.title" 
-      style="cursor: pointer;">
-      <div class="icon">
-        <i class="{{card.i}}"></i>
-      </div>
-      <h5 class="text-center">{{card.title}}</h5>
+<div class="category-grid mb-5">
+  <div
+    class="card"
+    *ngFor="let card of category"
+    [routerLink]="'/category/' + card.title"
+    style="cursor: pointer;"
+  >
+    <div class="icon">
+      <i class="{{card.i}}"></i>
     </div>
-    <hr class="mt-5 mb-5">
+    <h5 class="text-center">{{card.title}}</h5>
   </div>
-  
+</div>
+<hr class="mt-5 mb-5">

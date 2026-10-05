@@ -1,10 +1,17 @@
-.card{
-    width: 170px;
-    height: 145px;
-    margin-bottom: 20px;
-    
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
 }
-.icon{
+
+.card {
+    width: 100%;
+    min-width: 0;
+    height: 145px;
+    margin: 0;
+}
+
+.icon {
     font-size: 40px;
     text-align: center;
     margin-top: 20px;
@@ -15,18 +22,20 @@
     background-color: #ff6b6b;
     color: white;
 }
-@media (max-width : 750px){
-    .card{
-        left: 20%;
+
+@media (max-width: 767px) {
+    .category-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
     }
-}
-@media (max-width : 550px){
-    .card{
-        left: 10%;
+
+    .card {
+        height: 130px;
+        padding: 8px;
     }
-}
-@media (max-width : 455px){
-    .card{
-        left: 25%;
+
+    .card h5 {
+        font-size: clamp(0.75rem, 3.5vw, 1rem);
+        overflow-wrap: anywhere;
     }
 }

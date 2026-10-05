@@ -5,7 +5,27 @@
 
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
-    <a class="navbar-brand brand" routerLink="/home" >ShopTastic</a>
+    <a class="navbar-brand brand" routerLink="/home">ShopTastic</a>
+    <div class="mobile-actions d-flex d-lg-none">
+      <a routerLink="/wishlist" class="position-relative" aria-label="Wishlist">
+        <i class="fa-regular fa-heart"></i>
+        <span
+          *ngIf="wishlistCount > 0"
+          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+        >
+          {{ wishlistCount }}
+        </span>
+      </a>
+      <a routerLink="/cart" class="position-relative" aria-label="Cart">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span
+          *ngIf="cartCount > 0"
+          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+        >
+          {{ cartCount }}
+        </span>
+      </a>
+    </div>
     <button
       class="navbar-toggler"
       type="button"
@@ -116,7 +136,7 @@
       </div>
 
       <!-- Wishlist Icon with count (Adjusted position) -->
-      <div class="position-relative me-3">
+      <div class="position-relative me-3 d-none d-lg-block">
         <a routerLink="/wishlist">
           <i class="fa-regular fa-heart fa-lg"></i>
           <span
@@ -130,7 +150,7 @@
       </div>
 
       <!-- Cart Icon with count -->
-      <a routerLink="/cart" class="position-relative">
+      <a routerLink="/cart" class="position-relative d-none d-lg-block">
         <i class="fa-solid fa-cart-shopping fa-lg position-relative"></i>
         <span
           *ngIf="cartCount > 0"
