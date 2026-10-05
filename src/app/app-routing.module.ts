@@ -17,41 +17,39 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AdminGuard } from './guards/admin.guard';
-import { OrderConfirmationComponent} from './pages/order-confirmation/order-confirmation.component';
-import {BankPaymentComponent } from './bank-payment/bank-payment.component'
+import { OrderConfirmationComponent } from './pages/order-confirmation/order-confirmation.component';
+import { BankPaymentComponent } from './bank-payment/bank-payment.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'signup', pathMatch: 'full' },
-  { path: '', redirectTo: '/admin-login', pathMatch: 'full' },
-
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
 
-  { path: 'home', component: InexComponent, canActivate: [AuthGuard] },
-  { path: 'contact', component: ContactComponent, canActivate: [AuthGuard] },
-  { path: 'wishlist', component: WishlistComponent, canActivate: [AuthGuard] },
-  { path: 'about', component: AboutComponent, canActivate: [AuthGuard] },
-  { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard] },
-  { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
-  { path: 'all-products', component: AllProductsComponent, canActivate: [AuthGuard] },
-  { path: 'category/:catName', component: SingleCategoryComponent, canActivate: [AuthGuard] },
+  { path: 'home', component: InexComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'wishlist', component: WishlistComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'checkout', component: CheckoutComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'all-products', component: AllProductsComponent },
+  { path: 'category/:catName', component: SingleCategoryComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-  { path: 'all-products/:cardId', component: ProductDetailsComponent, canActivate: [AuthGuard] },
-  { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AdminGuard] },
-  { path: 'order-confirmation', component: OrderConfirmationComponent},
-    { path: 'bank-payment', component: BankPaymentComponent },
-   { path: 'admin-login', component: AdminLoginComponent },
+  { path: 'all-products/:cardId', component: ProductDetailsComponent },
+  {
+    path: 'admin-dashboard',
+    component: AdminDashboardComponent,
+    canActivate: [AdminGuard],
+  },
+  { path: 'order-confirmation', component: OrderConfirmationComponent },
+  { path: 'bank-payment', component: BankPaymentComponent },
+  { path: 'admin-login', component: AdminLoginComponent },
 
-
-
-  { path: '**', component: ErrorComponent }
+  { path: '**', component: ErrorComponent },
 ];
-
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
